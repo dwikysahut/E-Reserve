@@ -17,7 +17,7 @@
 
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo base_url('asset/dist/css/adminlte.min.css') ?>">
-
+    <link href="./css/pemesanan.style.css" rel="stylesheet" />
 </head>
 
 <body class="hold-transition sidebar-mini">

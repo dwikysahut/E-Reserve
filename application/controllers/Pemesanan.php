@@ -15,7 +15,9 @@ class Pemesanan extends CI_Controller
     public function index()
   {
     $data=$this->data;
-        $this->load->view('pemesanan/pemesanan', $data);
+    $data['produk']=$this->mProduk->get_data();
+    $data['page'] = 'pemesanan/pemesanan';
+    $this->load->view('layout/base', $data);
         
     }
     public function tambah()

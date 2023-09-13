@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="<?php echo base_url('asset/plugins/fontawesome-free/css/all.min.css') ?>">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo base_url('asset/dist/css/adminlte.min.css') ?>">
-    <link href=".././css/login.css" rel="stylesheet" />
+    <link href="./css/login.css" rel="stylesheet" />
 </head>
 
 <body class="hold-transition login-page" style="">
