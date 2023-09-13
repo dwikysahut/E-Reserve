@@ -1,0 +1,23 @@
+.login-box{
+  background-color: white;
+  border-radius: 15px;
+  
+}
+
+.error-wrapper {
+    display: flex;
+    width: 100%;
+    position: relative;
+    background-color: red;
+    justify-content: center;
+    border-radius: 15px;
+    margin-bottom: 8px;
+}
+.login-page {
+    background-image: url('.././assets/img/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.login-box>a {
+    color: black;
+}
