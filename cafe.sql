@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 13 Sep 2023 pada 18.04
+-- Generation Time: 14 Sep 2023 pada 14.49
 -- Versi Server: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -61,7 +61,11 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`kode_produk`, `nama_produk`, `expired_date`, `harga_satuan`, `ukuran`, `kategori`) VALUES
-('20302312', 'Coca-cola', '2024-09-22', 13000, 2, 3);
+('12321421', 'Fanta', '2024-09-22', 13000, 1, 3),
+('12412412', 'Indomie', '2023-09-23', 4000, 2, 2),
+('20302312', 'Coca-cola', '2024-09-22', 13000, 2, 3),
+('2414132412', 'Sprite', '2023-09-14', 7000, 1, 3),
+('41212515', 'Fanta', '2024-09-22', 7000, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -78,6 +82,20 @@ CREATE TABLE `transaksi` (
   `jumlah` int(11) NOT NULL,
   `total` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `transaksi`
+--
+
+INSERT INTO `transaksi` (`id`, `tanggal_pemesanan`, `no_pemesanan`, `nama_pelanggan`, `kode_produk`, `jumlah`, `total`) VALUES
+(4, '2023-09-14', '24738', 'aaa', '12412412', 10, 40000),
+(5, '2023-09-14', '91916', 'aaa', '12321421', 9, 117000),
+(6, '2023-09-14', '71044', 'aaa', '41212515', 3, 21000),
+(7, '2023-09-14', '1254', 'aaa', '12412412', 10, 40000),
+(8, '2023-09-14', '45660', 'aaa', '12321421', 9, 117000),
+(9, '2023-09-14', '40275', 'aaa', '41212515', 3, 21000),
+(10, '2023-09-14', '7272', 'fff', '12412412', 1, 4000),
+(11, '2023-09-14', '7272', 'fff', '12321421', 1, 13000);
 
 -- --------------------------------------------------------
 
@@ -138,6 +156,13 @@ ALTER TABLE `produk`
   ADD KEY `ukuran` (`ukuran`);
 
 --
+-- Indexes for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `kode_produk` (`kode_produk`);
+
+--
 -- Indexes for table `ukuran`
 --
 ALTER TABLE `ukuran`
@@ -158,6 +183,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `kategori`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `ukuran`
@@ -181,6 +212,12 @@ ALTER TABLE `user`
 ALTER TABLE `produk`
   ADD CONSTRAINT `produk_ibfk_1` FOREIGN KEY (`kategori`) REFERENCES `kategori` (`id`),
   ADD CONSTRAINT `produk_ibfk_2` FOREIGN KEY (`ukuran`) REFERENCES `ukuran` (`id`);
+
+--
+-- Ketidakleluasaan untuk tabel `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`kode_produk`) REFERENCES `produk` (`kode_produk`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

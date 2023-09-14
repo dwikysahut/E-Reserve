@@ -17,7 +17,7 @@
 
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo base_url('asset/dist/css/adminlte.min.css') ?>">
-    <link href="./css/pemesanan.style.css" rel="stylesheet" />
+    <link href="./css/pemesanan.style.css?<?php echo date('l jS \of F Y h:i:s A'); ?>" rel="stylesheet" />
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -58,6 +58,52 @@
     <!-- AdminLTE for demo purposes -->
     <script src="<?php echo base_url('asset/dist/js/demo.js') ?>"></script>
     <script>
+
+$(document).ready(function(){
+                $('.add-to-cart').click(function(){
+                        var kode_produk = $(this).data("kodeproduk");
+                        var nama_produk = $(this).data("namaproduk");
+                        var id_kategori = $(this).data("idkategori");
+                        var nama_kategori = $(this).data("namakategori");
+                        var id_ukuran = $(this).data("idukuran");
+                        var nama_ukuran = $(this).data("namaukuran");
+                        var harga_satuan = $(this).data("hargasatuan");
+                        var quantity     = 1;
+                        console.log(kode_produk)
+                        $.ajax({
+                                url : "<?php echo base_url();?>pemesanan/add_to_cart",
+                                method : "POST",
+                                data : {kode_produk,nama_produk,id_kategori,nama_kategori,id_ukuran,nama_ukuran,harga_satuan,quantity},
+                                success: function(data){
+                                    
+console.log(data)
+                                    $('.cart-section-wrapper').html(data);
+                                }
+                        });
+                });
+ 
+              
+ 
+                //Hapus Item Cart
+                $(document).on('click','.hapus-cart',function(){
+                        var produk_id=$(this).data("produkid"); //mengambil  id
+                        var produk_qty=$(this).data("produkqty"); //qty dari artibut id
+                      console.log(produk_id)
+                        $.ajax({
+                                url : "<?php echo base_url();?>pemesanan/delete_cart",
+                                method : "POST",
+                                data : {produk_id,produk_qty},
+                                success :function(data){
+                                    
+                                    
+                                    $('.cart-section-wrapper').html(data);
+                                }
+                               
+                                
+                        });
+                });
+        });
+
         $(function() {
             // $("#datalaporan").DataTable({
             //     "responsive": true,

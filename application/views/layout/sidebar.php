@@ -59,13 +59,22 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?php echo site_url('pemesanan') ?>" class="nav-link">
+                            <a href="<?php echo site_url('transaksi') ?>" class="nav-link">
                                 <i class="fas fa-file-export nav-icon"></i>
-                                <p>Pemesanan</p>
+                                <p>Transaksi</p>
                             </a>
                         </li>
                        
                     </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="<?php echo site_url('pemesanan') ?>"class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            pemesanan
+                        </p>
+                    </a>
                 </li>
              
                 <li class="nav-item">
