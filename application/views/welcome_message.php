@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1>Sistem Informasi Perpustakaan</h1>
+        <h1>Sistem Informasi pemesanan</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="card-body">
-      Sistem Informasi Perpustakaan....
+      Sistem Informasi pemesanan....
     </div>
     <!-- /.card-body -->
     <div class="card-footer">
